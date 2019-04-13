@@ -65,7 +65,7 @@ if (OutputType == 0)
 }
 
 
-void PushButton::read(long _now){
+void PushButton::read(unsigned long _now){
 
 //State Machine Control
   _CurrentReading = digitalRead(_input);
@@ -108,14 +108,16 @@ void PushButton::read(long _now){
 }
 
 
-void PushButton::check()
+bool PushButton::check()
 {
 
   //Run function to toggle if needed
   if(_PreviousState != _CurrentState) //if the state has changed and the current step is 4 then toggle lights
       if (_CurrentState == 4){               //this prevents multiple toggles as the state is 4 for as long as the switch is held
            toggle();
+		   return true;
        }
+	   return false;
 }
 
 

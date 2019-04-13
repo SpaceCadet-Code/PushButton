@@ -10,9 +10,9 @@ class PushButton
 public:
   PushButton(int input,int output,int eepromaddr=0,bool bUseEeprom=false,long debounceDelay=100,int maxeeprom=512);
   void begin(int,int);
-  void read(long);
+  void read(unsigned long);
   void toggle();
-  void check();
+  bool check();
   void handle();
 private:
   int _input;
@@ -24,7 +24,7 @@ private:
   int _CurrentState = 0;
   int _PreviousState= 0;
   int _CurrentReading = 0;           // the current reading from the input pin
-  long _lastDebounceTime = 0;  // the last time the output pin was toggled
+  unsigned long _lastDebounceTime = 0;  // the last time the output pin was toggled
   
   bool  _bUseEEPROM;
   
@@ -35,7 +35,7 @@ private:
 
   
   long _debounceDelay;
-  long _now =0 ;
+  unsigned long _now =0 ;
   int _eepromaddr;
   long _printline;
 };
