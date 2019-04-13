@@ -3,14 +3,14 @@ Simple library for a push button
 
 The format for the push button is as follows
 
-Function Call
+# Function Call
 PushButton(input,output,eepromaddr,bUseEEPROM,debounceDelay,eeprom max);
 
-Function Start
+# Function Start
 PushButton.begin(0,0);
 
-Function Running
+# Function Running
 PushButton.handle();
 
-Other functions that can be called
+# Other functions that can be called
 PushButton.toggle(); //This function will directly toggle the output
