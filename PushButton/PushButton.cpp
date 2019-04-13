@@ -30,7 +30,12 @@ void PushButton::begin(int InputType=0, int OutputType=0)
      _HighValIn = HIGH;
      pinMode(_input,INPUT_PULLUP);
   }
-
+ else if (InputType == 3)
+  {
+     _LowValIn = HIGH;
+     _HighValIn = LOW;
+     pinMode(_input,INPUT_PULLUP);
+  }
 
   if (OutputType == 0)
   {
