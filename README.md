@@ -4,7 +4,7 @@ Simple library for a push button
 The format for the push button is as follows
 
 # Function Call
-PushButton(input,output,eepromaddr,bUseEEPROM,debounceDelay,eeprom max);
+PushButton(input,output,eepromaddr,bUseEEPROM,debounceDelay,eepromMaxAddr);
 
 # Function Start
 PushButton.begin(0,0);
