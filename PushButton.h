@@ -9,11 +9,12 @@ class PushButton
   
 public:
   PushButton(int input,int output,int eepromaddr=0,bool bUseEeprom=false,long debounceDelay=100,int maxeeprom=512);
-  void begin(int,int);
+  void begin(int=0,int=0);
   void read(unsigned long);
   void toggle();
   bool check();
   void handle();
+  bool write (int);
 private:
   int _input;
   int _output;

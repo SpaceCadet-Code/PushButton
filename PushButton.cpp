@@ -10,7 +10,7 @@ PushButton::PushButton(int input,int output,int eepromaddr,bool bUseEEPROM,long 
   EEPROM.begin(maxeeprom);
 }
 
-void PushButton::begin(int InputType=0, int OutputType=0)
+void PushButton::begin(int InputType, int OutputType)
 {
    if (InputType == 0)
   {
@@ -49,23 +49,10 @@ void PushButton::begin(int InputType=0, int OutputType=0)
      _HighValOut = LOW;
      pinMode(_output,OUTPUT);
   }
-
-
-if (OutputType == 0)
-  {
-     _LowValOut = LOW;
-     _HighValOut = HIGH;
-  }
-  else if (OutputType == 1)
-  {
-     _LowValOut = HIGH;
-     _HighValOut = LOW;
-  }
-
 }
 
 
-void PushButton::read(unsigned long _now){
+void PushButton::read(unsigned long now){
 
 //State Machine Control
   _CurrentReading = digitalRead(_input);
@@ -154,7 +141,22 @@ void PushButton::toggle()
  
  }
 
-
+bool PushButton::write (int value)
+{
+	if (value = 0)
+	{
+		
+			digitalWrite(_output,_LowValOut);
+			return true;
+	}
+	else if (value = 1)
+	{
+		
+			digitalWrite(_output,_HighValOut);
+			return true;
+	}
+	return false;
+}
 
 
 void PushButton::handle()
