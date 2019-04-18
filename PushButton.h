@@ -8,7 +8,7 @@ class PushButton
 {
   
 public:
-  PushButton(int input,int output,int eepromaddr=0,bool bUseEeprom=false,long debounceDelay=100,int maxeeprom=512);
+  PushButton(int input,int output,int eepromaddr=-1,bool bUseEeprom=false,long debounceDelay=100,int maxeeprom=512);
   void begin(int=0,int=0);
   void read(unsigned long);
   void toggle();
