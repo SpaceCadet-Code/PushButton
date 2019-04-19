@@ -12,6 +12,11 @@ PushButton::PushButton(int input,int output,int eepromaddr,bool bUseEEPROM,long 
 
 void PushButton::begin(int InputType, int OutputType)
 {
+	if (not _Start)
+  {
+	  toggle;
+  }
+  
    if (InputType == 0)
   {
      _LowValIn = LOW;
@@ -49,6 +54,9 @@ void PushButton::begin(int InputType, int OutputType)
      _HighValOut = LOW;
      pinMode(_output,OUTPUT);
   }
+  
+    //Set the start bit to true. This function is only ran once at startup
+      _Start = true;
 }
 
 
@@ -129,14 +137,13 @@ void PushButton::toggle()
   //Set relay variable from the EEPROM
       if (_bUseEEPROM) {
       _Val = EEPROM.read(_eepromaddr);
-      digitalWrite(_output,_Val);
+		digitalWrite(_output,_Val);
       }
       else
       {
         digitalWrite(_output,_LowValOut);
       }
-   //Set the start bit to true. This function is only ran once at startup
-      _Start = true;
+ 
   }
  
  }
