@@ -14,7 +14,7 @@ void PushButton::begin(int InputType, int OutputType)
 {
 	if (not _Start)
   {
-	  toggle;
+	  toggle();
   }
   
    if (InputType == 0)
